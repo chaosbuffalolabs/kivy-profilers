@@ -8,8 +8,12 @@ goodlines = []
 with open(sys.argv[1],'r') as inf:
     for line in inf:
         r = check_re.match(line)
-        if r is not None and r.group(3) != "0.00":
-            goodlines.append([r.group(x) for x in range(1,5)])
+        if r is not None:
+            try:
+                if float(r.group(3)) != 0:
+                    goodlines.append([r.group(x) for x in range(1,5)])
+            except:
+                continue
 
 linetracker = defaultdict(list)
 
