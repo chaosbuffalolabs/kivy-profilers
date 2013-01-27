@@ -1,0 +1,110 @@
+<LinePlot>:
+    canvas:
+        # border
+        Color:
+            rgb: root.border_color
+        Line:
+            rectangle: (root.x, root.y, root.width, root.height)
+            width: root.border_width
+            joint: 'miter'
+
+        # data
+        PushMatrix
+        Translate:
+            xy: root.x, root.y
+        Color:
+            rgb: root.line_color
+        Line:
+            points: root.flattened_points
+            width: root.line_width   
+        
+
+        # selection circle
+        Color:
+            rgb: (1,0,0)
+        Line:
+            circle: root.select_circle
+
+        PopMatrix
+
+<PlotExplorer>:
+    plot_container: plot_container
+    #annotation: annotation
+
+    BoxLayout:
+        id: main_layout
+        pos: root.pos
+        size: root.size
+        orientation: 'vertical'
+        padding: 20
+        margins: 20
+        FloatLayout:
+            id: plot_container
+            size_hint: (1., .75)
+        GridLayout:
+            size_hint: (1, .25)
+            cols: 4
+            Label:
+                text: "Line Number"
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: "Total Memory (MB)"
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: "Incremental Memory (MB)"
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: "Code Snippet"
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[0][0] if len(root.annotations) >= 1 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[0][1] if len(root.annotations) >= 1 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[0][2] if len(root.annotations) >= 1 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[0][3] if len(root.annotations) >= 1 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[1][0] if len(root.annotations) >= 2 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[1][1] if len(root.annotations) >= 2 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[1][2] if len(root.annotations) >= 2 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[1][3] if len(root.annotations) >= 2 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[2][0] if len(root.annotations) >= 3 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[2][1] if len(root.annotations) >= 3 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[2][2] if len(root.annotations) >= 3 else ""
+                text_size: self.size
+                halign: 'left'
+            Label:
+                text: root.annotations[2][3] if len(root.annotations) >= 3 else ""
+                text_size: self.size
+                halign: 'left'
